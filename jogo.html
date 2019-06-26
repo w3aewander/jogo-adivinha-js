@@ -8,13 +8,18 @@
     <title>Jogo de adivinhar</title>
 </head>
 
-<body>
+<body onload="mostraRelogio();">
 
-    <div
-        style="display:block;margin:0 auto;padding: 30px;width: 80%;height:450px; background-color: lightblue;position:relative">
-
-        <h2>Jogo de adivinhar</h2>
-        <p>Escolha um número entre 1 e 100</p>
+    
+    <div style="display:block;margin:0 auto;padding: 30px;width: 80%;height:450px; background-color: lightblue;position:relative">
+         <div id="relogio" style="position:absolute;width:250px;right:10px;padding:5px;text-align:center;font-size:1.8em;background-color: black;color:rgb(205, 207, 205);font-weight: bolder;"></div>
+        <h1>Jogo de adivinhar</h1>
+        <p>
+            <h2>Escolha um número entre 1 e 100</h2>
+             <h3 style="color:red;font-weight: bold;">Número máximo de tentativas: 
+                 <span id="divmaxtentativas"></span>
+             </h3>
+        </p>
 
         <div style="float:left;padding:25px;width:40%;">
 
