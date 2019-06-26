@@ -12,7 +12,7 @@ O jogador inicialmente deve clicar no botão iniciar jogo para resetar os parâm
 > A cada rodada de palpite o jogador deve clicar em __iniciar jogo__.
 
 ## Informações gráficas
-A imagem lateral será alterada de acordo com a resposta do palpite. No inicio do jogo a imagem será  *play*, ao clicar no botão "Iniciar Jogo" a imagem será *cerebro1.gif* caso perca será exibida imagem *errou.gif* ou se acertar o palpite a imagem será *acertou.gif*. So terminar o jogo, a imagem será *fim.gif*. 
+A imagem lateral será alterada de acordo com a resposta do palpite. No inicio do jogo a imagem será  *play*, ao clicar no botão "Iniciar Jogo" a imagem será *cerebro1.gif* caso perca será exibida imagem *errou.gif* ou se acertar o palpite a imagem será *acertou.gif*. Ao terminar o jogo, a imagem será *fim.gif*. 
 
 ## Estrutura de diretórios
 
