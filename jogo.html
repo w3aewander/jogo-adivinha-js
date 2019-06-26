@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo de adivinhar</title>
+</head>
+
+<body>
+
+    <div
+        style="display:block;margin:0 auto;padding: 30px;width: 80%;height:450px; background-color: lightblue;position:relative">
+
+        <h2>Jogo de adivinhar</h2>
+        <p>Escolha um número entre 1 e 100</p>
+
+        <div style="float:left;padding:25px;width:40%;">
+
+            <button onclick="iniciarJogo();">Iniciar jogo...</button>
+            <hr>
+            <img id="imagem" src="img/cerebro1.gif" width="240" alt="">
+
+        </div>
+        <div style="float:left;width:40%;height: 300px;">
+            <div style="display: block; padding: 10px;margin: 20px; height:40px;vertical-align: middle;justify-items: stretch;text-justify:distribute">
+                <input type="text" id="palpite" style="font-size:26px;padding:5px;text-align: center" size="3" maxlength="3">
+                <button style="display:inline-block;height:60%;" onclick="return adivinha();">Palpite</button>
+                <br>
+                <strong>Tentativas:</strong> <input type="text" id="divtentativas" readonly="readonly" value="1"
+                    size="1" maxlength="1">
+                <br>
+            </div>
+            <div style="display: block;padding:20px;font-weight:bolder;font-size:2em;" id="resultado">
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="js/jogo.js"></script>
+</body>
+
+</html>
