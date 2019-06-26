@@ -15,11 +15,11 @@ A imagem lateral será alterada de acordo com a resposta do palpite. No inicio d
 
 ## Estrutura de diretórios
 
-> jogo.html
-> img/play.gif
-> img/acertou.gif
-> img/errou.gif
-> img/fim.gif
-> img/cerebro1.gif
-> js/jogo.js
+>jogo.html
+>img/play.gif
+>img/acertou.gif
+>img/errou.gif
+>img/fim.gif
+>img/cerebro1.gif
+>js/jogo.js
 
