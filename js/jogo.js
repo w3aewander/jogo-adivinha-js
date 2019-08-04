@@ -1,18 +1,26 @@
 var numero;
-var maxtentativas = 7;
+var maxtentativas = 0;
 var divmaxtentativas = document.querySelector("#divmaxtentativas");
 var tentativas;
 var tempo;
 var divtentativas = document.querySelector("#divtentativas");
 var resultado = document.querySelector("#resultado");
 var imagem = document.querySelector("#imagem");
+
+document.querySelector("#divpalpite").style.display = "none";
+document.querySelector("#modojogo").value = "0";
 divmaxtentativas.innerHTML = "<strong>" + maxtentativas + "</strong>";
 
+document.write("<audio src='https://archive.org/details/geometry_dash_1.9/Geometry+Dash+OST/Xstep.mp3' controls preload=auto hidden=true loop=true></audio>");
 
 function iniciarJogo() {
 
-    tentativas = 0;
-    tempo = 2000;
+    if ( maxtentativas == 0 ){
+        alert("Escolha um modo de jogo.");
+        return;
+    }
+    tentativas = 1;
+    tempo = 5000;
     
     document.querySelector("#palpite").value = "";
     
@@ -21,6 +29,9 @@ function iniciarJogo() {
     resultado.innerHTML = "";
     resultado.style.color = "red";
     imagem.src = "img/play.gif";
+
+    document.querySelector("#iniciarjogo").setAttribute("disabled",1);
+    document.querySelector("#divpalpite").style.display = "block";
 
    
 }
@@ -31,12 +42,17 @@ function adivinha() {
 
     var acertou = false;
     var palpite = parseInt(document.querySelector("#palpite").value);
+
+    if ( palpite <= 0 || palpite > 100){
+        document.querySelector("#mensagem").innerHTML = "<strong>Selecione um número entre 0 e 100 inclusive.</strong>";
+        return;
+    }
     
     resultado.innerHTML = "Calculando... aguarde";
     
     if (tentativas >= maxtentativas) {
 
-        alert("Fim de jogo! Número máximo de tentativas, Você perdeu!!! ");
+        document.querySelector("#mensagem").innerHTML ="<strong>Fim de jogo! Número máximo de tentativas, Você perdeu!!!</strong>";
         resultado.style.color = "red";
         imagem.src = "img/errou.gif";
 
@@ -46,6 +62,7 @@ function adivinha() {
 
         }, tempo);
         
+        document.querySelector("#palpite").value="";
         return false;
     }
 
@@ -70,7 +87,7 @@ function adivinha() {
             resultado.style.color = "green";
             resultado.innerHTML = "Parabéns, você acertou!!!";
             imagem.src = "img/acertou.gif";
-
+            
             return true;
         }
         return false;
@@ -78,6 +95,11 @@ function adivinha() {
 
     tentativas++;
     divtentativas.value = tentativas;
+
+    if (acertou || tentativas == maxtentativas ){
+        document.querySelector("#iniciarjogo").removeAttribute("disabled");
+        
+    }
 }
 
 function relogio(){
@@ -95,3 +117,8 @@ function mostraRelogio(){
     },1000);
 }
 
+function alteraModoJogo(el){
+   maxtentativas = parseInt(el.value);
+   divmaxtentativas.innerHTML = "<strong>" + maxtentativas + "</strong>";
+   iniciarJogo();
+}

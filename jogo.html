@@ -6,43 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jogo de adivinhar</title>
+
 </head>
 
 <body onload="mostraRelogio();">
 
-    
-    <div style="display:block;margin:0 auto;padding: 30px;width: 80%;height:450px; background-color: lightblue;position:relative">
-         <div id="relogio" style="position:absolute;width:250px;right:10px;padding:5px;text-align:center;font-size:1.8em;background-color: black;color:rgb(205, 207, 205);font-weight: bolder;"></div>
+
+    <div
+        style="display:block;margin:0 auto;padding: 30px;width: 80%;height:450px; background-color: lightblue;position:relative">
+        <div id="relogio"
+            style="position:absolute;width:250px;right:10px;padding:5px;text-align:center;font-size:1.8em;background-color: black;color:rgb(205, 207, 205);font-weight: bolder;">
+        </div>
         <h1>Jogo de adivinhar</h1>
         <p>
-            <h2>Escolha um número entre 1 e 100</h2>
-             <h3 style="color:red;font-weight: bold;">Número máximo de tentativas: 
-                 <span id="divmaxtentativas"></span>
-             </h3>
+            <h2>Escolha um número entre 0 e 100 inclusive</h2>
+            <h3 style="color:red;font-weight: bold;">Número máximo de tentativas:
+                <span id="divmaxtentativas"></span>
+            </h3>
         </p>
 
         <div style="float:left;padding:25px;width:40%;">
 
-            <button onclick="iniciarJogo();">Iniciar jogo...</button>
+            <select id="modojogo" onchange="alteraModoJogo(this);">
+                <option selected value="0">Escolha um modo de jogo</option>
+                <option selected value="7">Fácil</option>
+                <option selected value="5">Médio</option>
+                <option selected value="3">Difícil</option>
+            </select>
+            <button id="iniciarjogo" onclick="iniciarJogo();">Iniciar jogo...</button>
             <hr>
             <img id="imagem" src="img/cerebro1.gif" width="240" alt="">
 
         </div>
         <div style="float:left;width:40%;height: 300px;">
-            <div style="display: block; padding: 10px;margin: 20px; height:40px;vertical-align: middle;justify-items: stretch;text-justify:distribute">
-                <input type="text" id="palpite" style="font-size:26px;padding:5px;text-align: center" size="3" maxlength="3">
+
+            <div id="divpalpite" style="display: block; padding: 10px;margin: 20px; height:40px;vertical-align: middle;justify-items: stretch;text-justify:distribute">
+                <input type="number" min="1" max="100" step="1" id="palpite"
+                    style="font-size:26px;padding:5px;text-align: center" size="3" maxlength="3">
                 <button style="display:inline-block;height:60%;" onclick="return adivinha();">Palpite</button>
                 <br>
-                <strong>Tentativas:</strong> <input type="text" id="divtentativas" readonly="readonly" value="1"
-                    size="1" maxlength="1">
+                <strong>Tentativa:</strong> <input type="text" id="divtentativas" readonly="readonly" value="1" size="1"
+                    maxlength="1">
                 <br>
             </div>
-            <div style="display: block;padding:20px;font-weight:bolder;font-size:2em;" id="resultado">
+
+            <div style="display: block;padding:20px;font-weight:bolder;font-size:1.2em;" id="resultado">
 
             </div>
-
+             
         </div>
-
+        <div style="display: block;padding:20px;color:red; float:none" id="mensagem"></div>
     </div>
     <script src="js/jogo.js"></script>
 </body>
